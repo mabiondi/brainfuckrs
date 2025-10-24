@@ -1,7 +1,7 @@
 use std::io::{self, Read, Write};
 
 pub fn interpret(instructions: Vec<u8>) {
-    let mut tape = vec![0u8; 1024];
+    let mut tape = vec![0u8; 30000];
     let mut data_idx: usize = 0;
 
     let mut pc: usize = 0;
