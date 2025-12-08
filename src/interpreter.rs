@@ -9,8 +9,8 @@ pub fn interpret(instructions: Vec<u8>) {
         match &instructions[pc] {
             b'>' => data_idx += 1,
             b'<' => data_idx -= 1,
-            b'+' => tape[data_idx] += 1,
-            b'-' => tape[data_idx] -= 1,
+            b'+' => tape[data_idx] = tape[data_idx].wrapping_add(1),
+            b'-' => tape[data_idx] = tape[data_idx].wrapping_sub(1),
             b'.' => {
                 io::stdout().write(&tape[data_idx..=data_idx]).unwrap();
             }
