@@ -11,9 +11,7 @@ pub fn interpret(instructions: Vec<u8>) {
             b'<' => data_idx -= 1,
             b'+' => tape[data_idx] += 1,
             b'-' => tape[data_idx] -= 1,
-            b'.' => {
-                io::stdout().write(&tape[data_idx..=data_idx]).unwrap();
-            }
+            b'.' => { io::stdout().write(&tape[data_idx..=data_idx]).unwrap(); },
             b',' => {
                 let mut buf = [0u8; 1];
                 io::stdin().read_exact(&mut buf).unwrap();
